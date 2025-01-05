@@ -13,11 +13,6 @@ class ValidatedTimeStamp
 
     public function value(): int
     {
-        return $this->toMinutes();
-    }
-
-    private function toMinutes(): int
-    {
         return $this->hour * 100 + $this->minute;
     }
 
