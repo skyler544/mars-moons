@@ -9,18 +9,6 @@ use PHPUnit\Framework\TestCase;
 
 class RotationServiceTest extends TestCase
 {
-    private static function createInterval(
-        int $moonRiseHour,
-        int $moonRiseMinute,
-        int $moonSetHour,
-        int $moonSetMinute
-    ): Interval {
-        return new Interval(
-            new TimeStamp($moonRiseHour, $moonRiseMinute),
-            new TimeStamp($moonSetHour, $moonSetMinute)
-        );
-    }
-
     /**
      * @return array<int, array{Interval, Interval, NormalizedInterval, NormalizedInterval}>
      */
@@ -28,20 +16,20 @@ class RotationServiceTest extends TestCase
     {
         return [
             [
-                self::createInterval(0, 0, 1, 0),
-                self::createInterval(2, 0, 3, 0),
+                IntervalHelperService::createInterval(0, 0, 1, 0),
+                IntervalHelperService::createInterval(2, 0, 3, 0),
                 new NormalizedInterval(0, 100),
                 new NormalizedInterval(200, 300),
             ],
             [
-                self::createInterval(1, 0, 2, 0),
-                self::createInterval(3, 0, 4, 0),
+                IntervalHelperService::createInterval(1, 0, 2, 0),
+                IntervalHelperService::createInterval(3, 0, 4, 0),
                 new NormalizedInterval(0, 100),
                 new NormalizedInterval(200, 300),
             ],
             [
-                self::createInterval(24, 90, 0, 10),
-                self::createInterval(0, 0, 0, 10),
+                IntervalHelperService::createInterval(24, 90, 0, 10),
+                IntervalHelperService::createInterval(0, 0, 0, 10),
                 new NormalizedInterval(0, 20),
                 new NormalizedInterval(10, 20),
             ]
