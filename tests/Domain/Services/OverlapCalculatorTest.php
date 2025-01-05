@@ -2,7 +2,6 @@
 
 namespace Mars\Domain\Services;
 
-use Mars\Domain\Time\TimeStamp;
 use Mars\Domain\Time\Interval;
 use PHPUnit\Framework\TestCase;
 

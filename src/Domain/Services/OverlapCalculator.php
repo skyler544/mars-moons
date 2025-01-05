@@ -3,7 +3,6 @@
 namespace Mars\Domain\Services;
 
 use Mars\Domain\Interfaces\RotationInterface;
-use Mars\Domain\Time\Interval;
 
 class OverlapCalculator
 {
