@@ -6,7 +6,6 @@ use Mars\Domain\Interfaces\RotationInterface;
 use Mars\Domain\Time\NormalizedInterval;
 use Mars\Domain\Time\Interval;
 
-// The rotation is always calculated according to Deimos' moonrise
 class RotationService implements RotationInterface
 {
     public function __construct(
@@ -15,24 +14,33 @@ class RotationService implements RotationInterface
     ) {
     }
 
-    public function deimosRotated(): NormalizedInterval
+    public function deimosRotated(): Interval
     {
-        return new NormalizedInterval(
-            $this->deimos->start()->value() - $this->rotationOffset(),
-            $this->deimos->end()->value() - $this->rotationOffset()
-        );
+        return $this->rotatedNormalizedInterval($this->deimos);
     }
 
-    public function phobosRotated(): NormalizedInterval
+    public function phobosRotated(): Interval
     {
-        return new NormalizedInterval(
-            $this->phobos->start()->value() - $this->rotationOffset(),
-            $this->phobos->end()->value() - $this->rotationOffset()
-        );
+        return $this->rotatedNormalizedInterval($this->phobos);
     }
 
     private function rotationOffset(): int
     {
-        return max(0, $this->deimos->start()->value());
+        return max(0, $this->deimos->start());
+    }
+
+    private function rotatedNormalizedInterval(Interval $interval): Interval
+    {
+        return new Interval(
+            $this->normalized($interval->start() - $this->rotationOffset()),
+            $this->normalized($interval->end() - $this->rotationOffset())
+        );
+    }
+
+    private function normalized(int $value): int
+    {
+        return $value < 0
+            ? $value + 2500
+            : $value;
     }
 }

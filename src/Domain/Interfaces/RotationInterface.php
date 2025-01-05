@@ -9,6 +9,6 @@ interface RotationInterface
 {
     public function __construct(Interval $deimos, Interval $phobos);
 
-    public function deimosRotated(): NormalizedInterval;
-    public function phobosRotated(): NormalizedInterval;
+    public function deimosRotated(): Interval;
+    public function phobosRotated(): Interval;
 }

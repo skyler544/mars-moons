@@ -2,7 +2,7 @@
 
 namespace Mars\Domain\Time;
 
-class TimeStamp
+class ValidatedTimeStamp
 {
     public function __construct(
         private readonly int $hour,
@@ -25,7 +25,7 @@ class TimeStamp
     {
         if (! $this->isValid($hour, $minute)) {
             throw new \InvalidArgumentException(
-                "Invalid Martian timestamp: {$this}"
+                "Invalid Martian timestamp: {$this->hour}:{$this->minute}"
             );
         }
     }
@@ -33,10 +33,5 @@ class TimeStamp
     private function isValid(int $hour, int $minute): bool
     {
         return $hour >= 0 && $hour < 25 && $minute >= 0 && $minute < 100;
-    }
-
-    public function __toString(): string
-    {
-        return "{$this->hour}:{$this->minute}";
     }
 }

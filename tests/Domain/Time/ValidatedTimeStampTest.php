@@ -6,7 +6,7 @@ use InvalidArgumentException;
 use Mars\Domain\Time\TimeStamp;
 use PHPUnit\Framework\TestCase;
 
-class TimeStampTest extends TestCase
+class ValidatedTimeStampTest extends TestCase
 {
     /**
      * @return array<int, array<int, int, int>>
@@ -25,7 +25,7 @@ class TimeStampTest extends TestCase
     #[\PHPUnit\Framework\Attributes\DataProvider('validTimeStampProvider')]
     public function testValidTimeStamp(int $hour, int $minute, int $expectedMinutes): void
     {
-        $timestamp = new TimeStamp($hour, $minute);
+        $timestamp = new ValidatedTimeStamp($hour, $minute);
         $this->assertEquals($expectedMinutes, $timestamp->value());
     }
 
@@ -50,6 +50,6 @@ class TimeStampTest extends TestCase
     public function testInvalidTimeStamp(int $hour, int $minute): void
     {
         $this->expectException(InvalidArgumentException::class);
-        new TimeStamp($hour, $minute);
+        new ValidatedTimeStamp($hour, $minute);
     }
 }

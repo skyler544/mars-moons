@@ -2,7 +2,7 @@
 
 namespace Mars\Application;
 
-use Mars\Domain\Services\IntervalHelperService;
+use Mars\Domain\Services\IntervalService;
 use Mars\Domain\Services\OverlapCalculator;
 use Mars\Domain\Services\RotationService;
 use Mars\Domain\Time\Interval;
@@ -40,11 +40,6 @@ class Mars
         echo "Original Deimos Interval: {$deimosInterval}\n";
         echo "Original Phobos Interval: {$phobosInterval}\n";
 
-        // Print the length of time each moon is visible
-        echo "\n";
-        echo "Deimos Duration: {$deimosInterval->getDuration()} minutes\n";
-        echo "Phobos Duration: {$phobosInterval->getDuration()} minutes\n";
-
         // Print the rotated intervals
         echo "\n";
         echo "Rotated Deimos Interval: {$deimosRotated}\n";
@@ -64,12 +59,12 @@ class Mars
     public function run(): void
     {
         $this->calculateOverlapDurationWithOutput(
-            IntervalHelperService::createInterval(0, 0, 1, 40),
-            IntervalHelperService::createInterval(0, 30, 2, 0)
+            IntervalService::createInterval(0, 0, 1, 40),
+            IntervalService::createInterval(0, 30, 2, 0)
         );
         $this->calculateOverlapDurationWithOutput(
-            IntervalHelperService::createInterval(1, 0, 5, 0),
-            IntervalHelperService::createInterval(2, 30, 8, 0)
+            IntervalService::createInterval(1, 0, 5, 0),
+            IntervalService::createInterval(2, 30, 8, 0)
         );
     }
 }

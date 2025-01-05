@@ -5,35 +5,19 @@ namespace Mars\Domain\Time;
 class Interval
 {
     public function __construct(
-        private readonly TimeStamp $start,
-        private readonly TimeStamp $end,
+        private readonly int $start,
+        private readonly int $end,
     ) {
     }
 
-    public function start(): TimeStamp
+    public function start(): int
     {
         return $this->start;
     }
 
-    public function end(): TimeStamp
+    public function end(): int
     {
         return $this->end;
-    }
-
-    public function getDuration(): int
-    {
-        $startMinutes = $this->start->value();
-        $endMinutes = $this->adjustedEndTime();
-
-        return $endMinutes - $startMinutes;
-    }
-
-    public function adjustedEndTime(): int
-    {
-        $endMinutes = $this->end->value();
-        return $endMinutes < $this->start->value()
-            ? $endMinutes + 2500
-            : $endMinutes;
     }
 
     public function __toString(): string
