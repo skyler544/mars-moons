@@ -10,13 +10,14 @@
     - Edge case: [12:14, 18:14] [18:14, 20:01] -> 1 minute duration
 # Architecture:
   - Implementation
-  - Entry point takes two timestamps, outputs an integer (duration)
+  - Entry point takes two intervals, outputs an integer (duration)
     - arbitrary decision, first is deimos second is phobos
     - can have a wrapper no-arg entrypoint main that lets you test
   - Overlap duration calculator
-    - timestamp normalizer
-      - should make it simple to compare timestamps
-  - Tests
+    - interval normalizer
+      - should make it simple to compare intervals
+      - rotates the intervals based on deimos' moonrise
+- Tests
     - test each module
     - 15 assertions
-    - some style of assertion, check slides
+    - use `DataProvider` from `PHPUnit` to make testing an array of data simpler.
