@@ -29,13 +29,6 @@ class TimeStampTest extends TestCase
         $this->assertEquals($expectedMinutes, $timestamp->toMinutes());
     }
 
-    private function assertValidTimeStamp(int $hour, int $minute): void
-    {
-        $timestamp = new TimeStamp($hour, $minute);
-        $this->assertEquals($hour, $timestamp->hour());
-        $this->assertEquals($minute, $timestamp->minute());
-    }
-
     /**
      * @return array<int, array<int, int>>
      */
@@ -53,7 +46,9 @@ class TimeStampTest extends TestCase
     #[\PHPUnit\Framework\Attributes\DataProvider('validTimeStampProvider')]
     public function testValidTimestamp(int $hour, int $minute): void
     {
-        $this->assertValidTimeStamp($hour, $minute);
+        $timestamp = new TimeStamp($hour, $minute);
+        $this->assertEquals($hour, $timestamp->hour());
+        $this->assertEquals($minute, $timestamp->minute());
     }
 
     /**
