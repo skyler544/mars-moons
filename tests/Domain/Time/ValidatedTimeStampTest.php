@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 class ValidatedTimeStampTest extends TestCase
 {
     /**
-     * @return array<int, array<int, int, int>>
+     * @return array<int, array<int, int>>
      */
     public static function validTimeStampProvider(): array
     {

@@ -58,6 +58,8 @@ class Mars
 
     public function run(): void
     {
+        echo "\n---\n";
+        echo "Example of debug output:";
         $this->calculateOverlapDurationWithOutput(
             IntervalService::createInterval(0, 0, 1, 40),
             IntervalService::createInterval(0, 30, 2, 0)
@@ -66,5 +68,13 @@ class Mars
             IntervalService::createInterval(1, 0, 5, 0),
             IntervalService::createInterval(2, 30, 8, 0)
         );
+
+        echo "\n---\n";
+        echo "Example of non-debug return value: "
+             . $this->calculateOverlapDuration(
+                 IntervalService::createInterval(8, 14, 1, 40),
+                 IntervalService::createInterval(0, 30, 2, 0)
+             );
+        echo "\n---\n";
     }
 }
