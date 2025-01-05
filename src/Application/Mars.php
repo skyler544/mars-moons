@@ -42,8 +42,8 @@ class Mars
 
         // Print the length of time each moon is visible
         echo "\n";
-        echo "Deimos Duration: {$deimosInterval->getDurationInMinutes()} minutes\n";
-        echo "Phobos Duration: {$phobosInterval->getDurationInMinutes()} minutes\n";
+        echo "Deimos Duration: {$deimosInterval->getDuration()} minutes\n";
+        echo "Phobos Duration: {$phobosInterval->getDuration()} minutes\n";
 
         // Print the rotated intervals
         echo "\n";

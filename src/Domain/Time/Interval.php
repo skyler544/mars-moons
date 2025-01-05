@@ -20,7 +20,7 @@ class Interval
         return $this->end;
     }
 
-    public function getDurationInMinutes(): int
+    public function getDuration(): int
     {
         $startMinutes = $this->start->toMinutes();
         $endMinutes = $this->adjustedEndTime();
