@@ -30,7 +30,7 @@ class TimeStamp
     {
         if (! $this->isValid($hour, $minute)) {
             throw new \InvalidArgumentException(
-                "Invalid Martian timestamp: {$hour}:{$minute}"
+                "Invalid Martian timestamp: {$this}"
             );
         }
     }
