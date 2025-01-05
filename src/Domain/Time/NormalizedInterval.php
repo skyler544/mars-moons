@@ -26,4 +26,9 @@ class NormalizedInterval
             ? $value + 2500
             : $value;
     }
+
+    public function __toString(): string
+    {
+        return "[{$this->start()}, {$this->end()}]";
+    }
 }
