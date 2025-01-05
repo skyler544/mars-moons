@@ -37,8 +37,8 @@ class Mars
 
         // Print the original intervals
         echo "\n";
-        echo "Original Deimos Interval: {$deimosInterval->__toString()}\n";
-        echo "Original Phobos Interval: {$phobosInterval->__toString()}\n";
+        echo "Original Deimos Interval: {$deimosInterval}\n";
+        echo "Original Phobos Interval: {$phobosInterval}\n";
 
         // Print the length of time each moon is visible
         echo "\n";
