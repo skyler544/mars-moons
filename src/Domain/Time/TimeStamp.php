@@ -21,6 +21,11 @@ class TimeStamp
         return $this->minute;
     }
 
+    public function toMinutes(): int
+    {
+        return $this->hour() * 100 + $this->minute();
+    }
+
     private function validateTimeStamp(int $hour, int $minute): void
     {
         if (! $this->isValid($hour, $minute)) {

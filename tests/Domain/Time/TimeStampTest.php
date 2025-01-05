@@ -8,6 +8,27 @@ use PHPUnit\Framework\TestCase;
 
 class TimeStampTest extends TestCase
 {
+    /**
+     * @return array<int, array<int, int>>
+     */
+    public static function timeStampProvider(): array
+    {
+        return [
+            [0, 0, 0],
+            [12, 30, 1230],
+            [15, 69, 1569],
+            [20, 21, 2021],
+            [24, 99, 2499],
+        ];
+    }
+
+    #[\PHPUnit\Framework\Attributes\DataProvider('timeStampProvider')]
+    public function testToMinutes(int $hour, int $minute, int $expectedMinutes): void
+    {
+        $timestamp = new TimeStamp($hour, $minute);
+        $this->assertEquals($expectedMinutes, $timestamp->toMinutes());
+    }
+
     private function assertValidTimeStamp(int $hour, int $minute): void
     {
         $timestamp = new TimeStamp($hour, $minute);
