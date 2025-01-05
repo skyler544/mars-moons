@@ -16,7 +16,7 @@ class TimeStampTest extends TestCase
     }
 
     /**
-     * @return array<int,array<int,int>>
+     * @return array<int, array<int, int>>
      */
     public static function validTimeStampProvider(): array
     {
@@ -36,7 +36,7 @@ class TimeStampTest extends TestCase
     }
 
     /**
-     * @return array<int,array<int,int>>
+     * @return array<int, array<int, int>>
      */
     public static function invalidTimeStampProvider(): array
     {
