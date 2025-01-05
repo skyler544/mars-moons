@@ -19,4 +19,9 @@ class Interval
     {
         return $this->end;
     }
+
+    public function __toString(): string
+    {
+        return "[{$this->start}, {$this->end}]";
+    }
 }
