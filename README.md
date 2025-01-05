@@ -1,1 +1,22 @@
 # Mars
+  - **Deimos:** Martian moon
+  - **Phobos:** Martian moon
+  - **Day:** 25 hours; hour is 100 minutes
+  - **Timestamp:** 17:89, 24:61, 08:12, 00:00
+  - **Interval:** two timestamps during which a moon is visible
+    - [04:97, 12:00]
+    - [24:97, 08:00] -> if second timestamp smaller, then it's the next day
+  - **Overlap Duration:** time during which both moons are visible in the sky
+    - Edge case: [12:14, 18:14] [18:14, 20:01] -> 1 minute duration
+# Architecture:
+  - Implementation
+  - Entry point takes two timestamps, outputs an integer (duration)
+    - arbitrary decision, first is deimos second is phobos
+    - can have a wrapper no-arg entrypoint main that lets you test
+  - Overlap duration calculator
+    - timestamp normalizer
+      - should make it simple to compare timestamps
+  - Tests
+    - test each module
+    - 15 assertions
+    - some style of assertion, check slides
