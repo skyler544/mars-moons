@@ -20,18 +20,18 @@ class Interval
         return $this->end;
     }
 
-    public function getDuration(): int
+    public function getDurationInMinutes(): int
     {
         $startMinutes = $this->start->toMinutes();
-        $endMinutes = $this->adjustedEndTime($startMinutes);
+        $endMinutes = $this->adjustedEndTime();
 
         return $endMinutes - $startMinutes;
     }
 
-    private function adjustedEndTime(int $startMinutes): int
+    public function adjustedEndTime(): int
     {
         $endMinutes = $this->end->toMinutes();
-        return $endMinutes < $startMinutes
+        return $endMinutes < $this->start->toMinutes()
             ? $endMinutes + 2500
             : $endMinutes;
     }

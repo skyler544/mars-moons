@@ -31,7 +31,7 @@ class IntervalTest extends TestCase
         int $expectedDuration
     ): void {
         $interval = new Interval($start, $end);
-        $this->assertEquals($expectedDuration, $interval->getDuration());
+        $this->assertEquals($expectedDuration, $interval->getDurationInMinutes());
     }
 
     /**
