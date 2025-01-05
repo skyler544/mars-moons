@@ -2,6 +2,8 @@
 
 namespace Mars;
 
+use Mars\Application\Mars;
+
 require __DIR__ . '/../vendor/autoload.php';
 
 class Main

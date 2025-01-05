@@ -1,6 +1,6 @@
 <?php
 
-namespace Mars;
+namespace Mars\Application;
 
 class Mars
 {
