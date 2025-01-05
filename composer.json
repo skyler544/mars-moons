@@ -1,0 +1,22 @@
+{
+  "name": "technikum/mars",
+  "type": "project",
+  "description": "Calculates the overlap in visibility of Mars' moons, Deimos and Phobos, in the sky.",
+  "license": "MIT",
+  "require": {
+    "php": ">=8.3"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.64",
+    "phpunit/phpunit": "^11.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Mars\\": ["src/", "tests/"]
+    }
+  },
+  "scripts": {
+    "test": "phpunit tests",
+    "style-lint": "php-cs-fixer fix src"
+  }
+}
