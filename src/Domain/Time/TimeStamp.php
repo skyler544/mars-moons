@@ -42,6 +42,6 @@ class TimeStamp
 
     public function __toString(): string
     {
-        return sprintf('%02d:%02d', $this->hour(), $this->minute());
+        return "{$this->hour()}:{$this->minute()}";
     }
 }
