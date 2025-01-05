@@ -6,7 +6,7 @@ use Mars\Domain\Time\ValidatedTimeStamp;
 use Mars\Domain\Time\Interval;
 use Mars\Domain\Interfaces\IntervalInterface;
 
-class IntervalService implements IntervalInterface
+class IntervalService
 {
     public static function createInterval(
         int $startHour,
