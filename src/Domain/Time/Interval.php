@@ -22,7 +22,7 @@ class Interval
 
     public function getDuration(): int
     {
-        $startMinutes = $this->start->toMinutes();
+        $startMinutes = $this->start->value();
         $endMinutes = $this->adjustedEndTime();
 
         return $endMinutes - $startMinutes;
@@ -30,8 +30,8 @@ class Interval
 
     public function adjustedEndTime(): int
     {
-        $endMinutes = $this->end->toMinutes();
-        return $endMinutes < $this->start->toMinutes()
+        $endMinutes = $this->end->value();
+        return $endMinutes < $this->start->value()
             ? $endMinutes + 2500
             : $endMinutes;
     }

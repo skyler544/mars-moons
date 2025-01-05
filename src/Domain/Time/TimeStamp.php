@@ -11,19 +11,14 @@ class TimeStamp
         $this->validateTimeStamp($hour, $minute);
     }
 
-    public function hour(): int
+    public function value(): int
     {
-        return $this->hour;
+        return $this->toMinutes();
     }
 
-    public function minute(): int
+    private function toMinutes(): int
     {
-        return $this->minute;
-    }
-
-    public function toMinutes(): int
-    {
-        return $this->hour() * 100 + $this->minute();
+        return $this->hour * 100 + $this->minute;
     }
 
     private function validateTimeStamp(int $hour, int $minute): void
@@ -42,6 +37,6 @@ class TimeStamp
 
     public function __toString(): string
     {
-        return "{$this->hour()}:{$this->minute()}";
+        return "{$this->hour}:{$this->minute}";
     }
 }
